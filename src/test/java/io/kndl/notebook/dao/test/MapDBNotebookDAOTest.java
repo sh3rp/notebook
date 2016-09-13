@@ -3,6 +3,7 @@ package io.kndl.notebook.dao.test;
 import io.kndl.notebook.dao.MapDBNotebookDAO;
 import io.kndl.notebook.dao.NotebookDAO;
 import io.kndl.notebook.model.Note;
+import io.kndl.notebook.model.NoteData;
 import io.kndl.notebook.model.Notebook;
 import io.kndl.notebook.serialization.ObjectCodec;
 import org.junit.Before;
@@ -24,7 +25,7 @@ public class MapDBNotebookDAOTest {
     @Before
     public void setup() {
         this.db = DBMaker.memoryDB().make();
-        this.dao = new MapDBNotebookDAO(db,new ObjectCodec<Notebook>(),new ObjectCodec<Note>());
+        this.dao = new MapDBNotebookDAO(db,new ObjectCodec<Notebook>(),new ObjectCodec<Note>(), new ObjectCodec<NoteData>());
     }
 
     @Test public void getAllNotebooksTest() {
@@ -42,7 +43,6 @@ public class MapDBNotebookDAOTest {
     @Test public void getAllNotesByNotebookIdTest () {
         Notebook notebook = new Notebook("test1",null,null);
         notebook = dao.saveNotebook(notebook);
-        Note note1 = new Note();
     }
     @Test public void getNotebookByIdTest() {}
     @Test public void saveNotebookTest() {}

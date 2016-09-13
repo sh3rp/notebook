@@ -25,27 +25,4 @@ public class Notebook implements Serializable {
         this.notes = notes;
         this.tags = tags;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Notebook notebook = (Notebook) o;
-
-        if (id != notebook.id) return false;
-        if (name != null ? !name.equals(notebook.name) : notebook.name != null) return false;
-        if (notes != null ? !notes.equals(notebook.notes) : notebook.notes != null) return false;
-        return tags != null ? tags.equals(notebook.tags) : notebook.tags == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (notes != null ? notes.hashCode() : 0);
-        result = 31 * result + (tags != null ? tags.hashCode() : 0);
-        return result;
-    }
 }

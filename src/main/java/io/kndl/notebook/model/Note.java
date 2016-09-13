@@ -8,17 +8,6 @@ import java.util.Set;
  * Created by skend on 9/3/2016.
  */
 public class Note implements Serializable {
-    public static class NoteData {
-        public final String name;
-        public final String mimeType;
-        public final byte[] data;
-
-        public NoteData(String name, String mimeType, byte[] data) {
-            this.name = name;
-            this.mimeType = mimeType;
-            this.data = data;
-        }
-    }
     public final long id;
     public final long notebookId;
     public final String title;
